@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><project default="create_run_jar" name="Create Runnable Jar for Project mqTest">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <target name="create_run_jar">
+        <jar destfile="build/scheduler.jar" filesetmanifest="mergewithoutmain">
+            <manifest>
+                <attribute name="Main-Class" value="com.jpm.queue.Scheduler"/>
+                <attribute name="Class-Path" value="."/>
+            </manifest>
+            <fileset dir="./bin" excludes="**/test/**,*.properties"/>
+        </jar>
+    	<copy todir="build">
+            <fileset dir="./bin" includes="*.properties"/>
+    	</copy> 
+    </target>
+    <target name="create_test_jar">
+        <jar destfile="build/schedulerTest.jar" filesetmanifest="mergewithoutmain">
+            <manifest>
+                <attribute name="Main-Class" value="com.jpm.test.Tester"/>
+                <attribute name="Class-Path" value="."/>
+            </manifest>
+            <fileset dir="./bin" excludes="*.properties"/>
+        </jar>
+    	<copy todir="build">
+            <fileset dir="./bin" includes="*.properties"/>
+    	</copy> 
+    </target>
+</project>
